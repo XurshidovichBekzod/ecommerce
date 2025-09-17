@@ -1,14 +1,17 @@
 import ProductView from '@/components/product-view/ProductView';
+import Clothes from '@/components/project-componets/Clothes';
 import { memo } from 'react';
 
-const Home = async() => {
-  const response = await fetch("https://api.errorchi.uz/product?limit=8", {next: {revalidate: 60}})
+const Home = async () => {
+  const response = await fetch("https://api.errorchi.uz/product?limit=8", { next: { revalidate: 60 } })
   const data = await response.json()
-  
+
   return (
-    <div className="container mx-auto">
-      {/* <Hero/> */}
-      <ProductView data={data?.data?.allProducts}/>
+    <div className="mx-auto">
+      <Clothes></Clothes>
+      <div className='container'>
+        <ProductView data={data?.data?.allProducts} />
+      </div>
       {/* <Testimonials/>
       <Service/> */}
     </div>
