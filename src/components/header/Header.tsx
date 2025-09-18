@@ -32,7 +32,7 @@ const Header = () => {
       <div className={`fixed top-0 left-0 w-full z-50 bg-[#fff] shadow-sm transition-all duration-300 ${isScrolled ? "h-[55px]" : "h-[65px]"}`}>
         <div className="h-full px-4 md:px-6 container mx-auto flex justify-between items-center text-black">
 
-          {/* Logo */}
+          
           <div className='flex items-center'>
             <Image
               src={shop}
@@ -40,10 +40,11 @@ const Header = () => {
               width={100}
               height={40}
               className="border"
+              onClick={() => rout.back()}
             />
           </div>
 
-          {/* Desktop links */}
+          
           <div className='hidden md:flex text-[#000] gap-[30px] ml-[40px] text-[16px]'>
             <Link href={"/"}>Home</Link>
             <Link href={"/about"}>About</Link>
@@ -51,7 +52,7 @@ const Header = () => {
             <Link href={"/login"}>Login</Link>
           </div>
 
-          {/* Search + Sign in (desktop) */}
+          
           <div className='hidden md:flex items-center'>
             <div className="w-[300px] lg:w-[500px] mr-[20px] flex items-center h-[35px] border border-[#F0F0F0] rounded-[20px] bg-[#F0F0F0] px-3 py-2">
               <Search className="w-5 h-5 text-gray-500" />
@@ -68,7 +69,7 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Mobile Hamburger */}
+          
           <div className="md:hidden">
             <button onClick={() => setMenuOpen(!menuOpen)}>
               {menuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
@@ -76,7 +77,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile menu */}
+        
         {menuOpen && (
           <div className="md:hidden bg-white shadow-md px-4 py-4 space-y-3">
             <Link href={"/"} className="block">Home</Link>
