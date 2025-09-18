@@ -2,11 +2,12 @@ import Image from "next/image";
 import { memo } from "react";
 import stars from "@/components/header/assets/Frame 10.svg";
 
-const Detail = async ({ params }: { params: { id: string } }) => {
-  const { id } = params;
+const Detail = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = await params;
   const response = await fetch(`https://api.errorchi.uz/product/${id}`);
   const data = await response.json();
   const product = data?.data;
+
 
   return (
     <div className="Page container pt-[70px] bg-[#fff] h-[91vh] flex gap-[30px]">
