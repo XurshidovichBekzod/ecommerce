@@ -14,7 +14,7 @@ const ProductImage: FC<{ title: string; image?: string; id: number }> = ({
 
   return (
     <div
-      className="relative w-full h-48 bg-black overflow-hidden cursor-pointer flex items-center justify-center"
+      className="relative rounded-2xl w-full h-68 bg-[#F0EEED] overflow-hidden cursor-pointer flex items-center justify-center"
       onClick={() => router.push(`/product/${id}`)}
     >
       {image ? (
