@@ -17,11 +17,7 @@ const ProductView: FC<{ data: any[] }> = ({ data }) => {
               <ProductImage title={item.title} image={item.images[0]} id={item.id} />
             </div>
             <div className="p-4 space-y-2">
-              <h3 className="text-black">{item.title}</h3>
-              <p className="text-smline-clamp-2 text-[#000] font-bold text-[20px]">
-                {item.description}
-              </p>
-
+              <h3 className="text-black mt-[30px]">{item.title}</h3>
               <div className="flex items-center text-[#303030] gap-1">
                 <span className="text-[#000] font-bold text-[20px]  text-lg">
                   ${item.price}
