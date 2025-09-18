@@ -1,5 +1,6 @@
 import ProductView from '@/components/product-view/ProductView';
 import Clothes from '@/components/project-componets/Clothes';
+import Messages from '@/components/project-componets/Messages';
 import { memo } from 'react';
 
 const Home = async () => {
@@ -16,8 +17,7 @@ const Home = async () => {
       <div className='container'>
         <ProductView data={data?.data?.allProducts} />
       </div>
-      {/* <Testimonials/>
-      <Service/> */}
+      <Messages></Messages>
     </div>
   );
 };

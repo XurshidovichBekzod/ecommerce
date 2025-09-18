@@ -25,7 +25,7 @@ const Clothes = () => {
                             Browse through our diverse range of meticulously crafted garments,
                             designed to bring out your individuality and cater to your sense of style.
                         </p>
-                        <button className="w-[160px] h-[42px] rounded-full text-white bg-black mt-[20px] hover:bg-gray-800 transition">
+                        <button className="w-[160px] mb-[20px] h-[42px] rounded-full text-white bg-black mt-[20px] hover:bg-gray-800 transition">
                             Shop Now
                         </button>
                     </div>
@@ -42,15 +42,16 @@ const Clothes = () => {
                 </div>
             </div>
 
-            <div className="w-full h-[140px] bg-black flex items-center">
-                <div className="container flex justify-between items-center flex-wrap gap-6">
-                    <Image src={versace} alt="Versace" width={200} height={40} />
-                    <Image src={zara} alt="Zara" width={100} height={40} />
-                    <Image src={gucci} alt="Gucci" width={200} height={40} />
-                    <Image src={prada} alt="Prada" width={200} height={40} />
-                    <Image src={cevin} alt="Calvin Klein" width={230} height={40} />
+            <div className="w-full bg-black flex items-center py-6">
+                <div className="container flex flex-wrap justify-center lg:justify-between items-center gap-6">
+                    <Image src={versace} alt="Versace" width={160} height={40} />
+                    <Image src={zara} alt="Zara" width={80} height={40} />
+                    <Image src={gucci} alt="Gucci" width={160} height={40} />
+                    <Image src={prada} alt="Prada" width={160} height={40} />
+                    <Image src={cevin} alt="Calvin Klein" width={180} height={40} />
                 </div>
             </div>
+
         </>
     )
 }
