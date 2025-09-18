@@ -8,25 +8,7 @@ const Footer = () => {
     <div className="bg-[#f0f0f0] mt-[150px]">
       <div className="container">
         <footer className="relative">
-          {/* Top Subscribe Section */}
-          <div className="w-full bg-black absolute -top-[90px] left-1/2 -translate-x-1/2 h-auto rounded-[20px] px-6 lg:px-[64px] py-[36px] flex flex-col lg:flex-row justify-between items-center gap-6">
-            <h2 className="font-bold text-[28px] lg:text-[40px] leading-[120%] text-white max-w-[551px] text-center lg:text-left">
-              STAY UP TO DATE ABOUT OUR LATEST OFFERS
-            </h2>
-            <div className="flex flex-col w-full max-w-[340px] gap-[12px]">
-              <input
-                type="text"
-                placeholder="Enter your email address"
-                className="font-medium text-[16px] bg-white w-full pl-[10px] py-[12px] rounded-[62px] duration-300 hover:bg-[#f3f3f3]"
-              />
-              <button className="font-medium text-[16px] bg-white w-full py-[12px] rounded-[62px] duration-300 hover:bg-[#f3f3f3] active:scale-[0.97]">
-                Subscribe to Newsletter
-              </button>
-            </div>
-          </div>
-
-
-          <div className="pt-[200px] flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-0 mb-[50px]">
+          <div className="pt-[50px] flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-0 mb-[50px]">
             
             <div className="max-w-[248px]">
               <Image src={logo} alt="logo" className="mb-[25px]" />
@@ -49,7 +31,6 @@ const Footer = () => {
                 </ul>
               </div>
 
-              {/* Help */}
               <div>
                 <h3 className="font-medium text-[16px] text-black mb-[22px] tracking-[0.19em] uppercase">
                   Help
@@ -62,7 +43,7 @@ const Footer = () => {
                 </ul>
               </div>
 
-              {/* FAQ */}
+              
               <div>
                 <h3 className="font-medium text-[16px] text-black mb-[22px] tracking-[0.19em] uppercase">
                   FAQ
@@ -75,7 +56,6 @@ const Footer = () => {
                 </ul>
               </div>
 
-              {/* Resources */}
               <div>
                 <h3 className="font-medium text-[16px] text-black mb-[22px] tracking-[0.19em] uppercase">
                   Resources
@@ -90,7 +70,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Bottom Section */}
           <hr className="text-[#000]/10 mb-[25px]" />
           <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
             <p className="font-normal text-[14px] text-[#000]/60 text-center sm:text-left">
