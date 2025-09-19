@@ -1,11 +1,14 @@
-import VerifySection from "@/components/verifySection/VerifySection";
-import { memo } from "react";
+import VerifySection from '@/components/verifySection/VerifySection';
+import { memo } from 'react';
 
-const Varify = ({ searchParams }: { searchParams: { q?: string } }) => {
-  const q = searchParams.q;
-  const user = q ? atob(q) : "";
-
-  return <VerifySection user={user} />;
+const Verify = async({searchParams} : {searchParams: Promise<{q:string}>}) => {
+    const {q} = await searchParams
+    const user = atob(q)
+    console.log(atob(q));
+    
+    return (
+    <VerifySection user={user}/>
+  );
 };
 
-export default memo(Varify);
+export default memo(Verify);
