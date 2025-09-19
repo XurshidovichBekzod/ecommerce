@@ -1,14 +1,13 @@
-import VerifySection from '../../components/verifySection/VerifySection';
+import VerifySection from '@/components/verifySection/VerifySection';
 import { memo } from 'react';
 
-const Verify = async({searchParams} : {searchParams: Promise<{q:string}>}) => {
+const Varify = async({searchParams}: {searchParams: Promise<{q: string}>}) => {
     const {q} = await searchParams
     const user = atob(q)
-    console.log(atob(q));
-    
-    return (
+    // fetch("http://localhost:3000/api/auth/login")
+  return (
     <VerifySection user={user}/>
   );
 };
 
-export default memo(Verify);
+export default memo(Varify);
