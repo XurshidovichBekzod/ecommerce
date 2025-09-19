@@ -47,7 +47,7 @@ const VerifySection = ({ user }: { user: string }) => {
                     <Button
                         type="primary"
                         danger
-                        onClick={() => open("https://lesson-8-3-loyiha.vercel.app")}
+                        onClick={() => open("https://dashbord-5ekh.vercel.app/")}
                     >
                         Try Again
                     </Button>
