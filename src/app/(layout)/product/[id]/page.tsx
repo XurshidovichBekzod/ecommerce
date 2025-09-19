@@ -12,7 +12,7 @@ const Detail = async ({ params }: { params: Promise<{ id: string }> }) => {
 
   return (
     <>
-    <div className="Page container pt-[70px] bg-[#fff] h-[91vh] flex gap-[30px]">
+    <div className="Page container pt-[70px] bg-[#fff]  flex gap-[30px]">
       <div>
         <Image
           src={"https://api.errorchi.uz/product/image/" + product?.images[0]}
@@ -46,7 +46,7 @@ const Detail = async ({ params }: { params: Promise<{ id: string }> }) => {
       </div>
     </div>
      <div className="container">
-      <div className="mt-[-330px] text-center lg:text-left">
+      <div className="mt-[40px] text-center lg:text-left">
         <h2 className="text-[28px] sm:text-[32px] lg:text-[40px] font-bold">
           OUR HAPPY CUSTOMERS
         </h2>
