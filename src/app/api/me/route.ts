@@ -1,26 +1,21 @@
+// app/api/auth/login/route.ts
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {
-  const token = req.cookies.get("token")?.value;
+export async function POST(req: NextRequest) {
+  const body = await req.json();
+  const { email, password } = body;
 
-  if (!token) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (email === "test@gmail.com" && password === "123456") {
+    return NextResponse.json({
+      data: {
+        accessToken: "fake_token_123",
+        user: {
+          email,
+          role: "user",
+        },
+      },
+    });
   }
 
-  const res = await fetch("https://api.errorchi.uz/auth/me", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  });
-
-  const data = await res.json();
-  const nextResponse = NextResponse.json(data);
-
-  if (res.status === 401 || res.status === 403) {
-    nextResponse.cookies.delete("token");
-  }
-
-  return nextResponse;
+  return NextResponse.json({ message: "Invalid credentials" }, { status: 401 });
 }
