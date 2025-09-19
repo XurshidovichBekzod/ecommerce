@@ -1,13 +1,9 @@
-import VerifySection from '@/components/verifySection/VerifySection';
-import { memo } from 'react';
+import VerifySection from "@/components/verifySection/VerifySection";
+import { memo } from "react";
 
-const Varify = async ({ searchParams }: { searchParams: Promise<{ q: string }> }) => {
-  const { q } = await searchParams;
-  
-  // q ni decode qilib JSON parse qilamiz
-  const decoded = atob(q);
-  const user = JSON.parse(decoded); // ✅ endi { email, password }
-
+const Varify = async ({ searchParams }: { searchParams: { q: string } }) => {
+  const { q } = searchParams;
+  const user = atob(q); // base64 decode q
   return <VerifySection user={user} />;
 };
 

@@ -3,12 +3,7 @@ import { Button, Spin } from "antd";
 import Title from "antd/es/typography/Title";
 import { memo, useEffect, useState } from "react";
 
-type UserType = {
-  email: string;
-  password: string;
-};
-
-const VerifySection = ({ user }: { user: UserType }) => {
+const VerifySection = ({ user }: { user: string }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<null | string>(null);
 
@@ -18,25 +13,17 @@ const VerifySection = ({ user }: { user: UserType }) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        email: user.email,
-        password: user.password,
-      }),
+      body: user, // bu yerga allaqachon JSON kelgan bo'lsa ok
     })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("🔎 API response:", data);
-
-        // API token qaytarsa shuni localStorage ga saqlaymiz
-        if (data?.token) {
-          localStorage.setItem("token", data.token);
-
-          // ✅ faqat muvaffaqiyatli login bo'lsa redirect qilamiz
-          window.location.href = "/profile";
-        } else {
-          setError(data?.error || "Login failed");
-          setLoading(false);
+      .then(async (res) => {
+        if (!res.ok) {
+          throw new Error("error");
         }
+        const result = await res.json();
+        // tokenni saqlash
+        localStorage.setItem("token", result.data.accessToken);
+        // profile sahifaga o'tish
+        window.location.href = "/profile";
       })
       .catch(() => {
         setError("Try again later");
@@ -65,7 +52,7 @@ const VerifySection = ({ user }: { user: UserType }) => {
           <Button
             type="primary"
             danger
-            onClick={() => open("https://lesson-8-3-loyiha.vercel.app/login")}
+            onClick={() => open("https://lesson-8-3-loyiha.vercel.app")}
           >
             Try Again
           </Button>
