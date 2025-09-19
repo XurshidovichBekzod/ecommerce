@@ -3,7 +3,12 @@ import { Button, Spin } from "antd";
 import Title from "antd/es/typography/Title";
 import { memo, useEffect, useState } from "react";
 
-const VerifySection = ({ user }: { user: string }) => {
+type UserType = {
+  email: string;
+  password: string;
+};
+
+const VerifySection = ({ user }: { user: UserType }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<null | string>(null);
 
@@ -13,10 +18,18 @@ const VerifySection = ({ user }: { user: string }) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ user }), // ✅ JSON.stringify kerak
+      // ✅ API kutayotgan format
+      body: JSON.stringify({
+        email: user.email,
+        password: user.password,
+      }),
     })
       .then((res) => {
         if (!res.ok) throw new Error("error");
+        return res.json();
+      })
+      .then((data) => {
+        console.log("✅ Login success:", data);
         window.location.href = "/profile";
       })
       .catch(() => {
@@ -46,7 +59,7 @@ const VerifySection = ({ user }: { user: string }) => {
           <Button
             type="primary"
             danger
-            onClick={() => open("https://lesson-8-3-loyiha.vercel.app")}
+            onClick={() => open("https://lesson-8-3-loyiha.vercel.app/login")}
           >
             Try Again
           </Button>

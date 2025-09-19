@@ -1,13 +1,14 @@
 import VerifySection from '@/components/verifySection/VerifySection';
 import { memo } from 'react';
 
-const Varify = async({searchParams}: {searchParams: Promise<{q: string}>}) => {
-    const {q} = await searchParams
-    const user = atob(q)
-    // fetch("http://localhost:3000/api/auth/login")
-  return (
-    <VerifySection user={user}/>
-  );
+const Varify = async ({ searchParams }: { searchParams: Promise<{ q: string }> }) => {
+  const { q } = await searchParams;
+  
+  // q ni decode qilib JSON parse qilamiz
+  const decoded = atob(q);
+  const user = JSON.parse(decoded); // ✅ endi { email, password }
+
+  return <VerifySection user={user} />;
 };
 
 export default memo(Varify);
