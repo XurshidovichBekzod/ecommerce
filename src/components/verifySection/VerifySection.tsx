@@ -30,7 +30,7 @@ const VerifySection = ({ user }: { user: string }) => {
         {error && (
           <div>
             <button
-              onClick={() => open("http://localhost:5173/login")}
+              onClick={() => open("https://dashbord-5ekh.vercel.app/login")}
               className="text-red-500"
             >
               {error}
