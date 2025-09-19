@@ -1,9 +1,10 @@
 import VerifySection from "@/components/verifySection/VerifySection";
 import { memo } from "react";
 
-const Varify = async ({ searchParams }: { searchParams: { q: string } }) => {
-  const { q } = searchParams;
-  const user = atob(q); // base64 decode q
+const Varify = ({ searchParams }: { searchParams: { q?: string } }) => {
+  const q = searchParams.q;
+  const user = q ? atob(q) : "";
+
   return <VerifySection user={user} />;
 };
 
