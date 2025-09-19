@@ -18,19 +18,25 @@ const VerifySection = ({ user }: { user: UserType }) => {
       headers: {
         "Content-Type": "application/json",
       },
-      // ✅ API kutayotgan format
       body: JSON.stringify({
         email: user.email,
         password: user.password,
       }),
     })
-      .then((res) => {
-        if (!res.ok) throw new Error("error");
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
-        console.log("✅ Login success:", data);
-        window.location.href = "/profile";
+        console.log("🔎 API response:", data);
+
+        // API token qaytarsa shuni localStorage ga saqlaymiz
+        if (data?.token) {
+          localStorage.setItem("token", data.token);
+
+          // ✅ faqat muvaffaqiyatli login bo'lsa redirect qilamiz
+          window.location.href = "/profile";
+        } else {
+          setError(data?.error || "Login failed");
+          setLoading(false);
+        }
       })
       .catch(() => {
         setError("Try again later");
